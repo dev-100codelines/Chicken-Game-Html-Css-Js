@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Chicken Game</title>
+    <style>
+        .start {
+            width: 15vw;
+            height: 10vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+
+        main {
+            height: 100vh;
+            background-image: url("assets/img/background.webp");
+            background-size: 100vw 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #basket {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+        .eggs {
+            width: 50px;
+            position: relative;
+            left: 100px;
+        }
+
+        #floor {
+            height: 25px;
+            bottom: 0;
+            position: absolute;
+        }
+
+        #basketRow {
+            bottom: 0;
+            position: absolute;
+        }
+
+        .p, button {
+            animation: fontAnimation 1s infinite alternate;
+        }
+
+        @keyframes fontAnimation{
+            from {
+                font-size: calc(1.375rem + 1.5vw);
+            }
+            to{
+                font-size: calc(1.75rem + 2.25vw);
+            }
+        }
+    </style>
+</head>
+<body>
+<main class="container-fluid">
+    <div class="d-flex justify-content-between">
+        <p class="text-primary h1" style="">Score: <span id="score" class="p"></span></p>
+        <p class="text-success h1" style="">High Score: <span id="highScore" class="p"></span></p>
+        <p class="text-danger h1 float-end">Lives: <span id="lives" class="p"></span></p>
+    </div>
+    <div class="start">
+        <button class="w-100 h-100 btn btn-lg btn-danger fw-bold" onclick="start()">Start</button>
+        <select name="level" id="level" class="form-select bg-warning">
+            <option value="1" selected>Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
+        </select>
+    </div>
+    <img alt="Egg" class="eggs" src="assets/img/egg.png">
+    <div class="w-100" id="basketRow">
+        <img alt="Basket" id="basket" src="assets/img/basket.png">
+    </div>
+    <div class="w-100" id="floor"></div>
+</main>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
